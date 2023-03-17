@@ -6,8 +6,6 @@ from enum import Enum
 from pathlib import Path
 from typing import NamedTuple, Optional
 
-# From: https://docs.github.com/en/rest/reference/checks
-class GitHubAnnotationLevel(str, Enum):
     NOTICE = "notice"
     WARNING = "warning"
     FAILURE = "failure"
@@ -36,7 +34,6 @@ for line in sys.stdin:
 
     code = lint_message["code"]
     severity = lint_message["severity"]
-    name = lint_message["name"]
     description = lint_message.get("description")
 
     # These fields are required by the GitHub API, but optional in lintrunner.
